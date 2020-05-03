@@ -12,3 +12,8 @@ ansible-playbook uninstallpysql.yml -i inventory.txt --ask-become-pass
 
 # Command to run playbook to install Python Flask and mysql
 ansible-playbook web_depl.yml -i inventory.txt --ask-become-pass
+
+# Commands to test Python Flask Application 
+curl http://10.128.0.9:5000
+curl http://10.128.0.9:5000/how%20are%20you
+
