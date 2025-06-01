@@ -11,6 +11,16 @@
 	sudo nano ~/.ssh/authorized_keys  #to be executed in target node
 	Paste the key contents from clipboard to the authorized_keys and save the file
 
+## Important: Updating Ansible Inventory from Terraform Output
+
+The IP address for the `db_and_webserver1` host (defined in `inventory.txt`) is provisioned by Terraform and can change if the infrastructure is recreated or modified. It is crucial to ensure that `inventory.txt` uses the correct IP address for `gcp-vm1` obtained from Terraform after provisioning.
+
+**Please refer to the detailed instructions in `docs/update_ansible_inventory.md` for how to:**
+1.  Query the `gcp_vm1_ip` output from Terraform.
+2.  Update the `ansible/inventory.txt` file with this IP address.
+
+This step is essential before running the Ansible playbooks to ensure they target the correct server.
+
 # URL for Ansible Commands
 https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide
 

@@ -154,3 +154,8 @@ resource "google_compute_instance" "gcp-vm2" {
   
   # metadata_startup_script = "${replace("${replace("${file("vm_userdata.sh")}", "<EXT_IP>", "${aws_eip.aws-ip.public_ip}")}", "<INT_IP>", "${var.aws_vm_address}")}"
   }
+
+output "gcp_vm1_ip" {
+  description = "The private IP address of GCP VM1"
+  value       = google_compute_instance.gcp-vm1.network_interface[0].network_ip
+}
